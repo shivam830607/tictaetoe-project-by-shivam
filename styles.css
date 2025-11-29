@@ -1,0 +1,132 @@
+/* Mobile Responsive Tic Tac Toe with Gradient Background */
+:root {
+  --cell-size: min(24vmin, 100px);
+  --gap: 12px;
+  --radius: 12px;
+  --x-color: #ffd166;
+  --o-color: #9bffb3;
+}
+
+/* Gradient background */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #fff;
+}
+
+.app {
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.status {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, var(--cell-size));
+  grid-template-rows: repeat(3, var(--cell-size));
+  gap: var(--gap);
+  justify-content: center;
+}
+
+.cell {
+  background: rgba(255, 255, 255, 0.12);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius);
+  font-size: 2.5rem;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.cell:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+
+.cell.x {
+  color: var(--x-color);
+}
+
+.cell.o {
+  color: var(--o-color);
+}
+
+/* Result Screen Overlay */
+.result-screen {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  transition: opacity 0.3s ease;
+}
+
+.result-screen.hidden {
+  display: none;
+}
+
+.result-box {
+  background: linear-gradient(135deg, #ff9966, #ff5e62);
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.result-box h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.result-box button {
+  background: white;
+  color: #ff5e62;
+  border: none;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.result-box button:hover {
+  background: #ff5e62;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Responsive tweaks */
+@media (max-width: 500px) {
+  .cell {
+    font-size: 2rem;
+  }
+  .result-box h2 {
+    font-size: 1.4rem;
+  }
+}
